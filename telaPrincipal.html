@@ -8,23 +8,37 @@
     <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <section>
-            <h1>MiniTask</h1>
-            <img src="imagens/favicon.png" alt="ícone do Software">
-            <h2>&#x1F464</h2>
-        </section> <hr style="margin-bottom: 20px;">
-    </header>
+    <section id="coluna1">
+        <h2>Funções</h2>
+        <div id="menuIcone">
+            <a href="editarPerfil.php">&#x1F464</a>
+        </div>
+    </section> <!--Primeira coluna-->
 
+    <section id="coluna2">
+        <div id="infogroup">
+            <h2>MiniTask</h2>
+            <form action="telaPrincipal.php" method="post"> <!--os comandos estarão nesta página-->
+                <input type="text" name="buscar" id="buscar" placeholder="Procure o seu contato">
+            </form>
+        </div>
+        <div class="contatos">
+            <form action="telaPrincipal.html" method="post">
+                <button type="submit" class="nome">Fulano</button>
+            </form>
+            <form action="deletar.php">
+                <button type="submit" class="deletar"><a href="deletarContato.php">❌</a></button> <!--Esse botão deleta o contato-->
+            </form>
+        </div>
+        <div id="adicionar"><a href="adicionarContato.php">➕</a></div> <!--Esse botão vai para a tela de adicionar-->
+    </section> <!--Segunda coluna-->
     <main>
-        <section id="procurar" style="border-left: 4px solid black; padding-left: 20px;"> 
-                <h1>Cadastrados</h1>
-                <input type="text" placeholder="Procure seu agendamento">
-        </section>
-        <section id="mostrar">
-
-        </section>
-    </main>
-    
+        <header>
+            <h1>Descrição</h1>
+        </header>
+        <div id="sem_contato">
+            <h2>Parece que não há niguém aqui... Adicione mais pessoas para os seus contatos!</h2>
+        </div>
+    </main> <!--Conteúdo Principal-->
 </body>
 </html>
