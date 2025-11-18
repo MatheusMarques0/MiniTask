@@ -140,6 +140,7 @@ label{
     border-radius: 15px;
     width: 45%;
     margin: 5px;
+    box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.164);
 }
 
 .optiongroup{
@@ -151,6 +152,7 @@ label{
     background-color: var(--Azul);
     color: white;
     transform: scale(1.05); 
+    transition: 0.3s;
 }
 /*As configurações acima deixa marcado as opções que você escolheu*/
 
