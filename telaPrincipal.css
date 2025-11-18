@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+:root{
+    --Branco: #F2F2F2;
+    --AzulClaro: #63BBF2;
+    --Azul: #0F50A6;
+    --AzulEscuro: #031D40;
+    --Preto: #0D0D0D;
+    --Verde: #04D9B2;
+}
+
+body {
+    background: linear-gradient(45deg, #1d05a6,#290773, #041340, #033679);
+}
+
+h1 {
+    color: var(--Branco);
+    width: 80px;
+    padding-right: 60px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 75%;
+    border: 2px solid black;
+    border-radius: 50%;
+    border-color: var(--AzulClaro);
+    background-color: var(--Azul);
+    font-size: 40px;
+    height: 60px;
+    width: 60px;
+}
+
+img {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    padding-left: 10px;
+}
+
+section {
+    display: flex;
+    padding-left: 20px;
+}
+
+ #procurar{
+    background-color: var(--Verde);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    
+}
+
+#procurar > h1 {
+    color: var(--Preto);
+}
+
+#procurar > input {
+    border-radius: 10px;
+    font-size: 15px;
+    width: 40%;
+    height: 30px;
+}
+
+#mostrar {
+    text-align: right;
+}
