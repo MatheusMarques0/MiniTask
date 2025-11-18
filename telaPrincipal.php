@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MiniTask</title>
-    <link rel="stylesheet" href="telaPrincipal.css">
+    <link rel="stylesheet" href="estilos/telaPrincipal.css">
     <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon">
 </head>
 <body>
