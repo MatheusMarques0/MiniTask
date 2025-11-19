@@ -23,10 +23,10 @@
             </form>
         </div>
         <div class="contatos">
-            <form action="telaPrincipal.html" method="post">
+            <form action="telaPrincipal.php" method="post">
                 <button type="submit" class="nome">Fulano</button>
             </form>
-            <form action="deletar.php">
+            <form action="deletarContato.php">
                 <button type="submit" class="deletar"><a href="deletarContato.php">❌</a></button> <!--Esse botão deleta o contato-->
             </form>
         </div>
