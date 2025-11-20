@@ -51,7 +51,7 @@
                 <br>
                 <input type="submit" value="Entrar" class="cadastro">
             </form>
-            <a href="index.php" class="link">Não tem uma conta?</a>
+            <a href="index.html" class="link">Não tem uma conta?</a>
         </section>
         <section id="img2">
 
