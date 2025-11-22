@@ -34,7 +34,7 @@
             <h1>MiniTask</h1>
             <h2>Entre no MiniTask com a sua conta!</h2>
             <!--formulário de cadastro-->
-            <form action="main.php" method="post">
+            <form action="telaPrincipal.php" method="POST">
                 <label for="nome">Nome:</label>
                 <br>
                 <input type="text" name="nome" id="nome" class="cadas" placeholder="Digite seu nome" required>
@@ -51,12 +51,31 @@
                 <br>
                 <input type="submit" value="Entrar" class="cadastro">
             </form>
-            <a href="index.html" class="link">Não tem uma conta?</a>
+            <a href="cadastro.php" class="link">Não tem uma conta?</a>
         </section>
         <section id="img2">
-
         </section>
     </main>
+
+    <?php
+
+        if($_SERVER["REQUEST_METHOD"] == "POST") {
+            include("conexao/conexao.php");
+
+            $nome = $_POST['nome'];
+
+            $sql = "SELECT nome FROM usuarios WHERE nome = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("s", $nome);
+            $stmt->execute();
+            $resultado = $stmt->get_result();
+            if ($resultado == $nome) {
+                header("location: telaPrincipal.php");
+            }
+        }
+
+    ?>
+
 </body>
 </html>
 </body>

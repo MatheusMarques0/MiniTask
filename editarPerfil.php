@@ -43,5 +43,27 @@
             </form>
         </section>
     
+
+    <?php
+        if($_SERVER["REQUEST_METHOD"] == "POST") {
+        include("conexao/conexao.php");
+
+        $nome = $_POST["nome"];
+        $email = $_POST["email"];
+        $senha = $_POST["senha"];
+
+        $sql = "UPDATE usuarios
+            SET nome = ?,
+                email = ?,
+                senha = ?
+            WHERE email = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ssss",$nome,$email,$senha,$email);
+        $stmt->execute();
+        $stmt->close(); 
+        $conn->close();
+        header("location:telaPrincipal.php");
+    }
+    ?>
 </body>
 </html>

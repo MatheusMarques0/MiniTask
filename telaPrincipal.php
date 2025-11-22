@@ -40,5 +40,35 @@
             <h2>Parece que não há niguém aqui... Adicione mais pessoas para os seus contatos!</h2>
         </div>
     </main> <!--Conteúdo Principal-->
+
+    <?php
+
+        include("conexao/conexao.php");
+        
+        $sql = "SELECT * FROM contatos";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+
+        if ($resultado->num_rows > 0) {
+                    
+            while ($row = $resultado->fetch_assoc()) {
+                    echo"
+                        <section id='coluna2'>
+                            <div class='contatos'>
+                                <form action='telaPrincipal.php' method='post'>
+                                <button type='submit' class='nome'>{$row['nome']}</button>
+                                </form>
+                                <form action='deletarContato.php'>
+                                <button type='submit' class='deletar'><a href='deletarContato.php'>❌</a></button>
+                                </form>
+                            <div>
+                        </section>
+                                ";
+
+        }
+    }
+    ?>
+
 </body>
 </html>

@@ -13,7 +13,7 @@
             <h1>MiniTask</h1>
             <h2>Cadastre-se para iniciar a sessão!</h2>
             <!--formulário de cadastro-->
-            <form action="main.php" method="post">
+            <form action="cadastro.php" method="POST">
                 <label for="nome">Nome:</label>
                 <br>
                 <input type="text" name="nome" id="nome" class="cadas" placeholder="Digite seu nome" required>
@@ -44,8 +44,41 @@
             <a href="login.php" class="link">Já tem uma conta?</a>
         </section>
         <section id="img">
-
         </section>
     </main>
+
+    <?php
+
+       try {
+       if($_SERVER["REQUEST_METHOD"] == "POST") {
+        include("conexao/conexao.php"); 
+
+        $nome = $_POST["nome"];
+        $email = $_POST["email"];
+        $senha = $_POST["senha"];
+
+        $sql = "INSERT INTO usuarios (nome,email,senha) VALUES (?,?,?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sss",$nome,$email,$senha);
+        $stmt->execute();
+        $stmt->close(); 
+        $conn->close();
+        header("location:telaPrincipal.php");
+       }
+
+       }
+
+       catch(mysqli_sql_exception $e){
+
+        if (str_contains($e->getMessage(), "Duplicate entry")) {
+
+            echo "<div>E-mail já está cadastrado</div>";
+        } else {
+            echo "<div>Erro ao cadastrar, Tente novamente mais tarde</div>";
+        }
+        echo $e->getMessage();
+       }
+    ?>
+
 </body>
 </html>
