@@ -22,26 +22,9 @@
                 <input type="text" name="buscar" id="buscar" placeholder="Procure o seu contato">
             </form>
         </div>
-        <div class="contatos">
-            <form action="telaPrincipal.php" method="post">
-                <button type="submit" class="nome">Fulano</button>
-            </form>
-            <form action="deletarContato.php">
-                <button type="submit" class="deletar"><a href="deletarContato.php">❌</a></button> <!--Esse botão deleta o contato-->
-            </form>
-        </div>
-        <div id="adicionar"><a href="adicionarContato.php">➕</a></div> <!--Esse botão vai para a tela de adicionar-->
-    </section> <!--Segunda coluna-->
-    <main>
-        <header>
-            <h1>Descrição</h1>
-        </header>
-        <div id="sem_contato">
-            <h2>Parece que não há niguém aqui... Adicione mais pessoas para os seus contatos!</h2>
-        </div>
-    </main> <!--Conteúdo Principal-->
-
-    <?php
+        <div id='contato'>
+        <!--É aqui onde ficará os contatos, o php, fará o comando HTML -->
+                <?php
 
         include("conexao/conexao.php");
         
@@ -54,7 +37,6 @@
                     
             while ($row = $resultado->fetch_assoc()) {
                     echo"
-                        <section id='coluna2'>
                             <div class='contatos'>
                                 <form action='telaPrincipal.php' method='post'>
                                 <button type='submit' class='nome'>{$row['nome']}</button>
@@ -62,13 +44,22 @@
                                 <form action='deletarContato.php'>
                                 <button type='submit' class='deletar'><a href='deletarContato.php'>❌</a></button>
                                 </form>
-                            <div>
-                        </section>
+                            </div>
                                 ";
 
         }
     }
     ?>
-
+        </div>
+        <div id="adicionar"><a href="adicionarContato.php">➕</a></div> <!--Esse botão vai para a tela de adicionar-->
+    </section> <!--Segunda coluna-->
+    <main>
+        <header>
+            <h1>Descrição</h1>
+        </header>
+        <div id="sem_contato">
+            <h2>Parece que não há niguém aqui... Adicione mais pessoas para os seus contatos!</h2>
+        </div>
+    </main> <!--Conteúdo Principal-->
 </body>
 </html>
