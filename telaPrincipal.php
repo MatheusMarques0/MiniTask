@@ -57,9 +57,36 @@
         <header>
             <h1>Descrição</h1>
         </header>
-        <div id="sem_contato">
-            <h2>Parece que não há niguém aqui... Adicione mais pessoas para os seus contatos!</h2>
-        </div>
-    </main> <!--Conteúdo Principal-->
+
+        <?php
+        // Quando o nome do contato é clicado:
+        if (isset($_POST['id_contato'])) {
+
+            $id = $_POST['id_contato'];
+
+            $sql = "SELECT * FROM contatos WHERE id = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $resultado = $stmt->get_result();
+
+            if ($resultado->num_rows > 0) {
+                $contato = $resultado->fetch_assoc();
+
+                echo "
+                <div id='descricao_contato'>
+                    <h2>{$contato['nome']}</h2>
+                    <p>{$contato['descricao']}</p>
+                </div>";
+            }
+        } else {
+            echo "
+            <div id='sem_contato'>
+                <h2>Parece que não há ninguém aqui...  
+                Clique em um contato para ver a descrição!</h2>
+            </div>";
+        }
+        ?>
+    </main> 
 </body>
 </html>
