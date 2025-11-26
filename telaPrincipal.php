@@ -39,6 +39,7 @@
                     echo"
                             <div class='contatos'>
                                 <form action='telaPrincipal.php' method='post'>
+                                <input type='hidden' name='id' value='{$row['id']}'>
                                 <button type='submit' class='nome'>{$row['nome']}</button>
                                 </form>
                                 <form action='deletarContato.php'>
@@ -60,9 +61,10 @@
 
         <?php
         // Quando o nome do contato é clicado:
-        if (isset($_POST['id_contato'])) {
+        // preste ataenção que o código está usando uma coluna chamada ID no banco dedados
+        if (isset($_POST['id'])) {
 
-            $id = $_POST['id_contato'];
+            $id = $_POST['id'];
 
             $sql = "SELECT * FROM contatos WHERE id = ?";
             $stmt = $conn->prepare($sql);
@@ -77,11 +79,12 @@
                 <div id='descricao_contato'>
                     <h2>{$contato['nome']}</h2>
                     <p>{$contato['descricao']}</p>
+                    <h3>{$contato['data']}</h3>
                 </div>";
             }
         } else {
             echo "
-            <div id='sem_contato'>
+            <div id='descricao_contato'>
                 <h2>Parece que não há ninguém aqui...  
                 Clique em um contato para ver a descrição!</h2>
             </div>";

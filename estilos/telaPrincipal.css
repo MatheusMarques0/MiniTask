@@ -66,6 +66,11 @@ h2{
     font-weight: 500;
 }
 
+h3{
+    color: var(--Azul);
+    margin-top: 10px;
+}
+
 a{
     text-decoration: none;
 }
@@ -171,9 +176,9 @@ input:hover{
     scale: 1.1;
 }
 
-#sem_contato{
+#descricao_contato{
     border: 1px solid black;
-    font-size: 13px;
+    font-size: 20px;
     width: 50%;
     position: absolute;
     top: 50%;

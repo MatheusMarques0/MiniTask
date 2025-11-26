@@ -26,7 +26,7 @@
                 <input type="time" name="time" id="time" class="adic" required>
                 <label for="desc">Descrição:</label>
                 <br>
-                <input name="desc" id="desc" class="adic" placeholder="Digite aqui..."></input>
+                <textarea id="desc" name="desc" class="adic" placeholder='Digite aqui...'></textarea>
                 <br>
                 <input type="submit" value="Adicionar" class="adicionar">
             </form>
