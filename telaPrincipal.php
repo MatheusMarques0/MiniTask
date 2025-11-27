@@ -42,8 +42,9 @@
                                 <input type='hidden' name='id' value='{$row['id']}'>
                                 <button type='submit' class='nome'>{$row['nome']}</button>
                                 </form>
-                                <form action='deletarContato.php'>
-                                <button type='submit' class='deletar'><a href='deletarContato.php'>❌</a></button>
+                                <form action='deletarContato.php' method='post'>
+                                    <input type='hidden' name='id_contato' value='{$row['id']}'>
+                                    <button type='submit' class='deletar'>❌</button>
                                 </form>
                             </div>
                                 ";
